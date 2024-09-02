@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadik Mohamud- Portfolio</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="./Images/AWT.jpg" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="social-links">
+            <a href="https://github.com/SadikMohamud" target="_blank">
+                <img src="./Images/git_4494748.png" alt="GitHub">
+            </a>
+            <a href="https://instagram.com/awaletech_ldn?igsh=MWQ2OXBoc2poa3pi" target="_blank">
+                <img src="./Images/instagram_1946444.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/sadik-mohamud/" target="_blank">
+                <img src="./Images/linkedin_3536505.png" alt="LinkedIn">
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My World</h1>
+            <p>A Creative Journey</p>
+            <div class="scroll-indicator" onclick="scrollToSection('about')">Scroll Down</div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="content-wrapper">
+            <h2>About Me</h2>
+            <p><strong>HI!</strong> I'm Sadik, a passionate junior front-end developer with a knack for creating visually appealing and user-friendly websites. With hands-on experience in HTML, CSS, and JavaScript, I am dedicated to bringing innovative ideas to life through code.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="content-wrapper">
+            <h2>All my work</h2>
+            <a href="https://sadikmohamud.github.io/Awaletech/">
+                <div class="project">
+                    <img src="./Images/mfp.png" alt="my-first-website">
+                    <div class="project-info">
+                        <h3>My first website</h3>
+                        <p>The final project I did during a web development Bootcamp with Getset UK.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://sadikmohamud.github.io/Tindog/">
+                <div class="project">
+                    <img src="./Images/tindog.png" alt="Tindog">
+                    <div class="project-info">
+                        <h3>Bootstrap website</h3>
+                        <p>This is a website I made using Bootstrap and showcases my expertise in using the platform.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://sadikmohamud.github.io/Awaletech/">
+                <div class="project">
+                    <img src="./Images/IMG-20210206-WA0000.jpg" alt="first-portfolio">
+                    <div class="project-info">
+                        <h3>My first portfolio</h3>
+                        <p>This is my first ever portfolio. I will not be changing the style, only adding to it. This is my retro.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="content-wrapper">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="e.g Sadik Mohamud" required>
+                <input type="email" placeholder="e.g msadiknur@gmail.com" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button class="button">Submit</button>
+            </form>
+        </div>
+    </section>
+    <script src="./Scripts/scripts.js"></script>
+</body>
+</html>
