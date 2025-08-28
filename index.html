@@ -8,9 +8,12 @@
 </head>
 <body>
     <header class="header">
+        <!-- Logo -->
         <div class="logo">
             <img src="./Images/AWT.jpg" alt="Logo">
         </div>
+
+        <!-- Navigation -->
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -18,17 +21,38 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+
+        <!-- Social Links -->
         <div class="social-links">
-            <a href="https://github.com/SadikMohamud" target="_blank">
+            <a href="https://github.com/SadikMohamud" target="_blank" aria-label="GitHub">
                 <img src="./Images/git_4494748.png" alt="GitHub">
             </a>
-            <a href="https://instagram.com/awaletech_ldn?igsh=MWQ2OXBoc2poa3pi" target="_blank">
+            <a href="https://instagram.com/awaletech_ldn?igsh=MWQ2OXBoc2poa3pi" target="_blank" aria-label="Instagram">
                 <img src="./Images/instagram_1946444.png" alt="Instagram">
             </a>
-            <a href="https://www.linkedin.com/in/sadik-mohamud/" target="_blank">
+            <a href="https://www.linkedin.com/in/sadik-mohamud/" target="_blank" aria-label="LinkedIn">
                 <img src="./Images/linkedin_3536505.png" alt="LinkedIn">
             </a>
         </div>
+
+        <!-- Burger Menu for Mobile -->
+        <div class="burger-menu" id="burgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#about" onclick="closeMobileNav()">About</a></li>
+                <li><a href="#projects" onclick="closeMobileNav()">Projects</a></li>
+                <li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" onclick="closeMobileNav()"></div>
     </header>
 
     <section class="hero">
