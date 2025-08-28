@@ -1,4 +1,4 @@
-/* Your Original Styles */
+/* Base Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -15,32 +15,34 @@ a {
 /* Header */
 .header {
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
-    padding: 20px;
+    width: 100%;
+    padding: 20px 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background: rgba(22, 22, 22, 0.7);
-    z-index: 1000;
     backdrop-filter: blur(10px);
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
 }
 
 .header .logo img {
     height: 50px;
     width: auto;
-    display: block;
     border-radius: 50%;
 }
 
-.header .logo {
-    position: absolute;
-    left: 20px;
-}
-
+/* Navigation */
 .header nav {
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     justify-content: center;
 }
@@ -48,26 +50,28 @@ a {
 .header nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
 }
 
 .header nav ul li {
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 .header nav ul li a {
     color: #f0f0f0;
+    transition: color 0.3s ease;
 }
 
 .header nav ul li a:hover {
     color: #ff6f61;
 }
 
+/* Social Links */
 .header .social-links {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .header .social-links a {
@@ -101,10 +105,7 @@ a {
 .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0, 0, 0, 0.6);
 }
 
@@ -135,10 +136,6 @@ a {
 
 .scroll-indicator:hover {
     color: #ff6f61;
-    margin-top: 50px;
-    font-size: 1.2em;
-    cursor: pointer;
-    animation: fadeInUp 2.5s ease-in-out;
 }
 
 /* About Section */
@@ -185,7 +182,6 @@ a {
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 50px;
-    position: relative;
 }
 
 .project img {
@@ -214,7 +210,6 @@ a {
 
 .project:hover img {
     transform: scale(0.55);
-    transition: 1s;
 }
 
 /* Contact Section */
@@ -244,7 +239,6 @@ a {
     border: 1px solid #444;
     border-radius: 5px;
     font-size: 1em;
-    box-sizing: border-box;
 }
 
 .contact form .button {
@@ -256,17 +250,14 @@ a {
     text-transform: uppercase;
     cursor: pointer;
     color: #ff6f61;
-    transition: all 1000ms;
-    font-size: 15px;
+    background: transparent;
+    outline: 2px solid #ff6f61;
     position: relative;
     overflow: hidden;
-    outline: 2px solid #ff6f61;
-    background: transparent;
-    width: auto;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
-    color: #ff6f61;
     transform: scale(1.1);
     outline: 2px solid #f3f0f0;
     box-shadow: 4px 5px 17px -4px #f47a64;
@@ -282,7 +273,7 @@ a {
     background-color: #070707;
     transform: skewX(45deg);
     z-index: -1;
-    transition: width 1000ms;
+    transition: width 0.3s ease;
 }
 
 .button:hover::before {
@@ -296,19 +287,11 @@ a:focus {
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* BURGER MENU STYLES */
-
-/* Burger menu button - hidden by default */
+/* Burger Menu */
 .burger-menu {
     display: none;
     flex-direction: column;
@@ -325,7 +308,6 @@ a:focus {
     transition: 0.3s;
 }
 
-/* Mobile menu */
 .mobile-nav {
     position: fixed;
     top: 0;
@@ -356,23 +338,16 @@ a:focus {
 .mobile-nav a {
     font-size: 1.2rem;
     display: block;
-    padding: 0.5rem 0;
-    text-decoration: none;
     color: #f0f0f0;
-    transition: color 0.3s ease;
 }
 
 .mobile-nav a:hover {
     color: #ff6f61;
 }
 
-/* Overlay for mobile menu */
 .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    inset: 0;
     background: rgba(0, 0, 0, 0.7);
     opacity: 0;
     visibility: hidden;
@@ -385,260 +360,28 @@ a:focus {
     visibility: visible;
 }
 
-/* Burger menu animation when active */
 .burger-menu.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
-
 .burger-menu.active span:nth-child(2) {
     opacity: 0;
 }
-
 .burger-menu.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* RESPONSIVE DESIGN - FIXED BREAKPOINTS */
-
-/* Desktop - keep your original layout */
-@media (min-width: 1025px) {
-    .header {
-        flex-direction: row;
-        align-items: center;
-        padding: 20px 40px;
-    }
-    
-    .header .logo {
-        position: absolute;
-        left: 20px;
-    }
-    
-    .header nav {
-        display: flex;
-    }
-    
-    .burger-menu {
-        display: none;
-    }
-    
-    .header nav ul {
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .header .social-links {
-        order: 3;
-        width: auto;
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 0;
-    }
+/* Responsive */
+@media (max-width: 1024px) {
+    .burger-menu { display: flex; }
+    .header nav { display: none; }
 }
 
-/* Tablet - show burger menu */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .burger-menu {
-        display: flex;
-    }
-    
-    .header nav {
-        display: none;
-    }
-    
-    .header .logo {
-        position: relative;
-        left: 0;
-    }
-    
-    .hero h1 {
-        font-size: 3.5em;
-    }
-    
-    .hero p {
-        font-size: 1.4em;
-    }
-    
-    .project {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .project img {
-        max-width: 100%;
-        transform: scale(0.7);
-    }
-    
-    .project:hover img {
-        transform: scale(0.75);
-    }
-    
-    .project-info {
-        max-width: 100%;
-        text-align: center;
-    }
-}
-
-/* Mobile phones */
 @media (max-width: 768px) {
-    .burger-menu {
-        display: flex;
-    }
-    
-    .header nav {
-        display: none;
-    }
-    
-    .header {
-        padding: 15px;
-    }
-    
-    .header .logo {
-        position: relative;
-        left: 0;
-    }
-    
-    .header .logo img {
-        height: 40px;
-    }
-    
-    .hero h1 {
-        font-size: 2.8em;
-    }
-    
-    .hero p {
-        font-size: 1.3em;
-    }
-    
-    .scroll-indicator {
-        font-size: 1.1em;
-    }
-    
-    .about, .projects, .contact {
-        padding: 60px 15px;
-    }
-    
-    .about h2, .projects h2, .contact h2 {
-        font-size: 2.2em;
-    }
-    
-    .project {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 40px;
-    }
-    
-    .project img {
-        max-width: 100%;
-        transform: scale(0.8);
-    }
-    
-    .project:hover img {
-        transform: scale(0.85);
-    }
-    
-    .project-info {
-        max-width: 100%;
-        text-align: center;
-        padding: 15px;
-    }
-    
-    .project h3 {
-        font-size: 1.8em;
-    }
-    
-    .project p {
-        font-size: 1em;
-    }
-    
-    .social-links {
-        gap: 15px;
-    }
-    
-    .social-links a {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .mobile-nav {
-        width: 85%;
-    }
+    .header { padding: 15px; }
+    .hero h1 { font-size: 2.8em; }
 }
 
-/* Extra small screens */
 @media (max-width: 480px) {
-    .header {
-        padding: 12px;
-    }
-    
-    .hero h1 {
-        font-size: 2.2em;
-    }
-    
-    .hero p {
-        font-size: 1.1em;
-    }
-    
-    .scroll-indicator {
-        font-size: 1em;
-        margin-top: 30px;
-    }
-    
-    .about, .projects, .contact {
-        padding: 40px 10px;
-    }
-    
-    .about h2, .projects h2, .contact h2 {
-        font-size: 1.8em;
-    }
-    
-    .about p {
-        font-size: 1.1em;
-    }
-    
-    .project-info {
-        padding: 10px;
-    }
-    
-    .project h3 {
-        font-size: 1.6em;
-    }
-    
-    .project p {
-        font-size: 0.95em;
-    }
-    
-    .mobile-nav {
-        width: 90%;
-    }
-    
-    .contact form input,
-    .contact form textarea {
-        padding: 12px;
-        font-size: 0.9em;
-    }
-    
-    .social-links a {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-/* Extra extra small screens */
-@media (max-width: 360px) {
-    .hero h1 {
-        font-size: 1.8em;
-    }
-    
-    .hero p {
-        font-size: 1em;
-    }
-    
-    .about h2, .projects h2, .contact h2 {
-        font-size: 1.6em;
-    }
-    
-    .mobile-nav {
-        width: 95%;
-    }
+    .hero h1 { font-size: 2.2em; }
+    .hero p { font-size: 1.1em; }
 }
