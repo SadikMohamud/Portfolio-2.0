@@ -1,4 +1,5 @@
-/* General Styles */
+
+/* Your Original Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -20,7 +21,7 @@ a {
     left: 0;
     padding: 20px;
     display: flex;
-    justify-content: space-between; /* Space between nav and social links */
+    justify-content: space-between;
     align-items: center;
     background: rgba(22, 22, 22, 0.7);
     z-index: 1000;
@@ -28,21 +29,21 @@ a {
 }
 
 .header .logo img {
-    height: 50px; /* Adjust the height of the logo */
-    width: auto; /* Maintain the aspect ratio */
-    display: block; /* Ensure no extra space around the image */
+    height: 50px;
+    width: auto;
+    display: block;
     border-radius: 50%;
 }
 
 .header .logo {
     position: absolute;
-    left: 20px; /* Keep the logo positioned on the left */
+    left: 20px;
 }
 
 .header nav {
     flex-grow: 1;
     display: flex;
-    justify-content: center; /* Center the nav items */
+    justify-content: center;
 }
 
 .header nav ul {
@@ -54,7 +55,11 @@ a {
 }
 
 .header nav ul li {
-    margin: 0 20px; /* Add 20px space between each item */
+    margin: 0 20px;
+}
+
+.header nav ul li a {
+    color: #f0f0f0;
 }
 
 .header nav ul li a:hover {
@@ -63,7 +68,7 @@ a {
 
 .header .social-links {
     display: flex;
-    gap: 20px; /* Space between social icons */
+    gap: 20px;
 }
 
 .header .social-links a {
@@ -75,7 +80,7 @@ a {
 .header .social-links a img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensures the icon maintains its aspect ratio */
+    object-fit: contain;
 }
 
 .header .social-links a:hover {
@@ -128,6 +133,7 @@ a {
     cursor: pointer;
     animation: fadeInUp 2.5s ease-in-out;
 }
+
 .scroll-indicator:hover {
     color: #ff6f61;
     margin-top: 50px;
@@ -189,7 +195,7 @@ a {
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease-in-out;
-    transform: scale(0.5); /* Scale the image to 50% */
+    transform: scale(0.5);
 }
 
 .project-info {
@@ -208,7 +214,7 @@ a {
 }
 
 .project:hover img {
-    transform: scale(0.55); /* Slightly increase the scale on hover */
+    transform: scale(0.55);
     transition: 1s;
 }
 
@@ -241,96 +247,162 @@ a {
     font-size: 1em;
 }
 
-.contact form
-.button {
-  padding: 1em 2em;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  color: #ff6f61;
-  transition: all 1000ms;
-  font-size: 15px;
-  position: relative;
-  overflow: hidden;
-  outline: 2px solid #ff6f61;
+.contact form .button {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #ff6f61;
+    transition: all 1000ms;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid #ff6f61;
+    background: transparent;
 }
 
-button:hover {
-  color: #ff6f61;
-  transform: scale(1.1);
-  outline: 2px solid #f3f0f0;
-  box-shadow: 4px 5px 17px -4px #f47a64;
+.button:hover {
+    color: #ff6f61;
+    transform: scale(1.1);
+    outline: 2px solid #f3f0f0;
+    box-shadow: 4px 5px 17px -4px #f47a64;
 }
 
-button::before {
-  content: "";
-  position: absolute;
-  left: -50px;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background-color: #070707;
-  transform: skewX(45deg);
-  z-index: -1;
-  transition: width 1000ms;
+.button::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #070707;
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
 }
 
-button:hover::before {
-  width: 250%;
+.button:hover::before {
+    width: 250%;
 }
 
+/* Accessibility */
+a:focus {
+    outline: 2px dashed #ff6f61;
+    outline-offset: 4px;
+}
 
-
-/* Responsive Design */
-@media (max-width: 1440px) {
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    .header nav {
-        order: 1;
-        width: 100%;
-    }
-    .header nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .header nav ul li {
-        margin: 10px 0; /* Add space between items */
-    }
-    .header .social-links {
-        order: 2;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 10px;
-    }
-    .hero h1 {
-        font-size: 2.5em;
-    }
-    .hero p {
-        font-size: 1.2em;
-    }
-    .project {
-        flex-direction: column;
-        align-items: center;
-    }
-    .project img {
-        max-width: 100%;
-    }
-    .project-info {
-        max-width: 100%;
-        text-align: center;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+/* NEW RESPONSIVE BURGER MENU STYLES */
+
+/* Burger menu button - hidden by default */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #f0f0f0;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Mobile menu */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 80%;
+    max-width: 300px;
+    background: rgba(22, 22, 22, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 80px 2rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobile-nav a {
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.mobile-nav a:hover {
+    color: #ff6f61;
+}
+
+/* Overlay for mobile menu */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 998;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Burger menu animation when active */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* FIXED RESPONSIVE DESIGN - PROPER BREAKPOINTS */
+
+/* Large Desktop */
 @media (min-width: 1441px) {
     .header {
         flex-direction: row;
         align-items: center;
+        padding: 20px 40px;
     }
     .header nav ul {
         flex-direction: row;
@@ -345,8 +417,145 @@ button:hover::before {
     }
 }
 
-/* Accessibility */
-a:focus {
-    outline: 2px dashed #ff6f61;
-    outline-offset: 4px;
+/* Tablets and smaller desktop */
+@media (max-width: 1440px) and (min-width: 769px) {
+    .burger-menu {
+        display: flex;
+    }
+    
+    .header nav {
+        display: none;
+    }
+    
+    .header .logo {
+        position: relative;
+        left: 0;
+    }
+    
+    .hero h1 {
+        font-size: 3em;
+    }
+    .hero p {
+        font-size: 1.3em;
+    }
+    .project {
+        flex-direction: column;
+        align-items: center;
+    }
+    .project img {
+        max-width: 100%;
+    }
+    .project-info {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+    
+    .header nav {
+        display: none;
+    }
+    
+    .header {
+        padding: 15px;
+    }
+    
+    .header .logo {
+        position: relative;
+        left: 0;
+    }
+    
+    .header .logo img {
+        height: 40px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+    .project {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .project img {
+        max-width: 100%;
+        transform: scale(0.8);
+    }
+    .project:hover img {
+        transform: scale(0.85);
+    }
+    .project-info {
+        max-width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .about, .projects, .contact {
+        padding: 60px 15px;
+    }
+    
+    .about h2, .projects h2, .contact h2 {
+        font-size: 2em;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-links a {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .mobile-nav {
+        width: 90%;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    
+    .about, .projects, .contact {
+        padding: 40px 10px;
+    }
+    
+    .about h2, .projects h2, .contact h2 {
+        font-size: 1.8em;
+    }
+    
+    .project-info {
+        padding: 10px;
+    }
+    
+    .project h3 {
+        font-size: 1.6em;
+    }
+    
+    .project p {
+        font-size: 1em;
+    }
+    
+    .mobile-nav {
+        width: 95%;
+    }
+    
+    .contact form input,
+    .contact form textarea {
+        padding: 12px;
+        font-size: 0.9em;
+    }
 }
