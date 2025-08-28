@@ -1,4 +1,3 @@
-
 /* Your Original Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -245,6 +244,7 @@ a {
     border: 1px solid #444;
     border-radius: 5px;
     font-size: 1em;
+    box-sizing: border-box;
 }
 
 .contact form .button {
@@ -262,6 +262,7 @@ a {
     overflow: hidden;
     outline: 2px solid #ff6f61;
     background: transparent;
+    width: auto;
 }
 
 .button:hover {
@@ -305,7 +306,7 @@ a:focus {
     }
 }
 
-/* NEW RESPONSIVE BURGER MENU STYLES */
+/* BURGER MENU STYLES */
 
 /* Burger menu button - hidden by default */
 .burger-menu {
@@ -313,6 +314,7 @@ a:focus {
     flex-direction: column;
     cursor: pointer;
     padding: 5px;
+    z-index: 1001;
 }
 
 .burger-menu span {
@@ -357,6 +359,7 @@ a:focus {
     padding: 0.5rem 0;
     text-decoration: none;
     color: #f0f0f0;
+    transition: color 0.3s ease;
 }
 
 .mobile-nav a:hover {
@@ -395,19 +398,34 @@ a:focus {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* FIXED RESPONSIVE DESIGN - PROPER BREAKPOINTS */
+/* RESPONSIVE DESIGN - FIXED BREAKPOINTS */
 
-/* Large Desktop */
-@media (min-width: 1441px) {
+/* Desktop - keep your original layout */
+@media (min-width: 1025px) {
     .header {
         flex-direction: row;
         align-items: center;
         padding: 20px 40px;
     }
+    
+    .header .logo {
+        position: absolute;
+        left: 20px;
+    }
+    
+    .header nav {
+        display: flex;
+    }
+    
+    .burger-menu {
+        display: none;
+    }
+    
     .header nav ul {
         flex-direction: row;
         align-items: center;
     }
+    
     .header .social-links {
         order: 3;
         width: auto;
@@ -417,8 +435,8 @@ a:focus {
     }
 }
 
-/* Tablets and smaller desktop */
-@media (max-width: 1440px) and (min-width: 769px) {
+/* Tablet - show burger menu */
+@media (max-width: 1024px) and (min-width: 769px) {
     .burger-menu {
         display: flex;
     }
@@ -433,18 +451,28 @@ a:focus {
     }
     
     .hero h1 {
-        font-size: 3em;
+        font-size: 3.5em;
     }
+    
     .hero p {
-        font-size: 1.3em;
+        font-size: 1.4em;
     }
+    
     .project {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
+    
     .project img {
         max-width: 100%;
+        transform: scale(0.7);
     }
+    
+    .project:hover img {
+        transform: scale(0.75);
+    }
+    
     .project-info {
         max-width: 100%;
         text-align: center;
@@ -475,27 +503,15 @@ a:focus {
     }
     
     .hero h1 {
-        font-size: 2.5em;
+        font-size: 2.8em;
     }
+    
     .hero p {
-        font-size: 1.2em;
+        font-size: 1.3em;
     }
-    .project {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-    .project img {
-        max-width: 100%;
-        transform: scale(0.8);
-    }
-    .project:hover img {
-        transform: scale(0.85);
-    }
-    .project-info {
-        max-width: 100%;
-        text-align: center;
-        padding: 15px;
+    
+    .scroll-indicator {
+        font-size: 1.1em;
     }
     
     .about, .projects, .contact {
@@ -503,7 +519,36 @@ a:focus {
     }
     
     .about h2, .projects h2, .contact h2 {
-        font-size: 2em;
+        font-size: 2.2em;
+    }
+    
+    .project {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    
+    .project img {
+        max-width: 100%;
+        transform: scale(0.8);
+    }
+    
+    .project:hover img {
+        transform: scale(0.85);
+    }
+    
+    .project-info {
+        max-width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .project h3 {
+        font-size: 1.8em;
+    }
+    
+    .project p {
+        font-size: 1em;
     }
     
     .social-links {
@@ -516,17 +561,27 @@ a:focus {
     }
     
     .mobile-nav {
-        width: 90%;
+        width: 85%;
     }
 }
 
 /* Extra small screens */
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2em;
+    .header {
+        padding: 12px;
     }
+    
+    .hero h1 {
+        font-size: 2.2em;
+    }
+    
     .hero p {
+        font-size: 1.1em;
+    }
+    
+    .scroll-indicator {
         font-size: 1em;
+        margin-top: 30px;
     }
     
     .about, .projects, .contact {
@@ -535,6 +590,10 @@ a:focus {
     
     .about h2, .projects h2, .contact h2 {
         font-size: 1.8em;
+    }
+    
+    .about p {
+        font-size: 1.1em;
     }
     
     .project-info {
@@ -546,16 +605,40 @@ a:focus {
     }
     
     .project p {
-        font-size: 1em;
+        font-size: 0.95em;
     }
     
     .mobile-nav {
-        width: 95%;
+        width: 90%;
     }
     
     .contact form input,
     .contact form textarea {
         padding: 12px;
         font-size: 0.9em;
+    }
+    
+    .social-links a {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Extra extra small screens */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.8em;
+    }
+    
+    .hero p {
+        font-size: 1em;
+    }
+    
+    .about h2, .projects h2, .contact h2 {
+        font-size: 1.6em;
+    }
+    
+    .mobile-nav {
+        width: 95%;
     }
 }
